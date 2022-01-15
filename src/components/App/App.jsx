@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import GalleryList from '../GalleryList/GalleryList.jsx';
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
     axios.get('/gallery')
       .then(res => {
         setGalleryList(res.data)
-        console.log('response.data is:', response.data);
+        console.log('response.data is:', res.data);
       })
       .catch(err => {
         //alert('error getting guests');
@@ -30,14 +31,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <div className='container'>
-          <img className='child' src="images/chair.jpg"/>
-          <img className='child' src="images/frances.jpg"/>
-          <img className='child' src="images/gondola.jpg"/>
-          <img className='child' src="images/loggers.jpg"/>
-          <img className='child' src="images/northern.jpg"/>
-          <img className='child' src="images/tree.jpg"/>
-        </div>
+        <GalleryList galleryList={galleryList} />
       </div>
     );
 }
