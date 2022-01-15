@@ -8,7 +8,14 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <div className='container'>
+          <img className='child' src="images/chair.jpg"/>
+          <img className='child' src="images/frances.jpg"/>
+          <img className='child' src="images/gondola.jpg"/>
+          <img className='child' src="images/loggers.jpg"/>
+          <img className='child' src="images/northern.jpg"/>
+          <img className='child' src="images/tree.jpg"/>
+        </div>
       </div>
     );
 }
