@@ -6,18 +6,20 @@ import GalleryList from '../GalleryList/GalleryList.jsx';
 
 function App() {
 
-  const [galleryList, setGalleryList] = useState([])
+  const [galleryList, setGalleryList] = useState([]);
 
   //On load, get images
   useEffect(() => {
     fetchImages()
   }, [])
 
+  //query server for image objects
   const fetchImages = () => {
     axios.get('/gallery')
       .then(res => {
+        //res.data is array of objects
+        //setGalleryList updates galleryList state
         setGalleryList(res.data)
-        console.log('response.data is:', res.data);
       })
       .catch(err => {
         //alert('error getting guests');
@@ -30,7 +32,6 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <p>Gallery goes here</p>
         <GalleryList galleryList={galleryList} />
       </div>
     );
