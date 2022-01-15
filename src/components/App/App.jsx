@@ -1,7 +1,29 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
+
+  const [galleryList, setGalleryList] = useState([])
+
+  //On load, get images
+  useEffect(() => {
+    fetchImages()
+  }, [])
+
+  const fetchImages = () => {
+    axios.get('/gallery')
+      .then(res => {
+        setGalleryList(res.data)
+        console.log('response.data is:', response.data);
+      })
+      .catch(err => {
+        //alert('error getting guests');
+        console.log('Error getting gallery:', err);
+      })
+  }
+
     return (
       <div className="App">
         <header className="App-header">
