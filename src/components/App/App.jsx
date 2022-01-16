@@ -56,7 +56,7 @@ function App() {
   }
 
   const deleteItem = (id, todoItem) => {
-    axios.de;ete(`/gallery/${id}`)
+    axios.delete(`/gallery/${id}`)
       .then(res => {
         fetchImages();
       })
@@ -78,6 +78,7 @@ function App() {
         <GalleryList 
           galleryList={galleryList}
           onClickLike={incrementLikes}
+          deleteItem={deleteItem}
         />
       </div>
       </>

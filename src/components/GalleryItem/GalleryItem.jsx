@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Typography, Grid, Button, Card, CardMedia, CardContent, ButtonGroup } from '@mui/material';
 
-function GalleryItem ({ image, onClickLike }) {
+function GalleryItem ({ image, onClickLike, deleteItem }) {
 //image is series of individual objects
 
     const [isToggled, setIsToggled] = useState(false);
@@ -45,7 +45,7 @@ function GalleryItem ({ image, onClickLike }) {
 
             <Button //like button triggers axios DELETE 
                 color="error"
-                onClick={() => onClickDelete(image.id)} 
+                onClick={() => deleteItem(image.id)} 
                 >Delete
             </Button>
         </ButtonGroup>
