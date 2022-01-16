@@ -66,4 +66,17 @@ router.post('/', (req, res) => {
 		});
 });
 
+router.delete('/:id', (req, res) => {
+	const queryText = `DELETE FROM gallery WHERE id = $1 `;
+	let queryParams = [ req.params.id ];
+	pool
+		.query(queryText, queryParams)
+		.then((dbRes) => {
+			res.sendStatus(204);
+		})
+		.catch((err) => {
+			console.log('DELETE failed:', err);
+		});
+});
+
 module.exports = router;
