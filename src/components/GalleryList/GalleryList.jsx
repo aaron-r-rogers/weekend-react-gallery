@@ -1,6 +1,6 @@
 import GalleryItem from "../GalleryItem/GalleryItem";
 
-function GalleryList ({ galleryList }) {
+function GalleryList ({ galleryList, onClickLike}) {
 //galleryList is array of objects
 
     console.log(galleryList);
@@ -11,6 +11,8 @@ function GalleryList ({ galleryList }) {
                 <GalleryItem
                     key={image.id}
                     image={image}
+                    likes={image.likes}
+                    onClickLike={onClickLike}
                 />
             ))}
         </div>
