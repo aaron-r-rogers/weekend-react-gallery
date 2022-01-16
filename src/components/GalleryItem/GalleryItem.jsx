@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Typography, Grid, Button, Card, CardMedia, CardContent } from '@mui/material';
 
 function GalleryItem ({ image, onClickLike, likes }) {
 //image is series of individual objects
@@ -8,37 +9,55 @@ function GalleryItem ({ image, onClickLike, likes }) {
     return (
         
         <>
-            
+        <Grid item xs={12} sm={6} md={4}>
+        <Card
+            sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        >
         {isToggled ? (
-            <p 
-                onClick={() => setIsToggled(!isToggled)}
-                //className used to resize in App.css
-                className="child">
+            <CardContent sx={{ flexGrow: 1 }}>
+            <Typography variant="h6" 
+                onClick={() => setIsToggled(!isToggled)}>
                 {image.description}        
-            </p>
+            </Typography>
+            </CardContent>
             ) : (
-            <img
-                onClick={() => setIsToggled(!isToggled)} 
-                //className used to resize in App.css
-                className="child"
+            <CardMedia
+                onClick={() => setIsToggled(!isToggled)}
+                sx={{
+                    height: 400,
+                    pt: '56.25%',
+                }}
                 //image.path is relative path of each jpg 
-                src={image.path}
+                image={image.path}
             />
         )}
 
-        <button //like button triggers axios PUT
+
+        <Button //like button triggers axios PUT
+            variant="contained" 
             onClick={() => onClickLike(image.id)} 
-            type="button">Like👍
-        </button>
+            type="button">Like
+        </Button>
         
         {image.likes === 0 ? (
             //default state
-            <p>No likes yet</p>
+            <Typography 
+                sx={{
+                padding: 2
+                }}
+                variant="h6">No likes yet
+            </Typography>
         ) : (
             //image.likes increments
-            <p>Likes: {image.likes}</p>
+            <Typography
+                sx={{
+                    padding: 2
+                }} 
+                variant="h6">Likes: {image.likes}
+            </Typography>
         )}
-
+        </Card>
+        </Grid>
         </>
     )
 }
