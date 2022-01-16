@@ -55,6 +55,16 @@ function App() {
       })
   }
 
+  const deleteItem = (id, todoItem) => {
+    axios.delete(`/gallery/${id}`)
+      .then(res => {
+        fetchImages();
+      })
+      .catch(err => {
+        console.error('Delete image failed', err);
+      });
+  }
+
     return (
       <>
       <CssBaseline />
@@ -68,6 +78,7 @@ function App() {
         <GalleryList 
           galleryList={galleryList}
           onClickLike={incrementLikes}
+          deleteItem={deleteItem}
         />
       </div>
       </>

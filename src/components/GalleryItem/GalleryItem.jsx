@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Typography, Grid, Button, Card, CardMedia, CardContent } from '@mui/material';
+import { Typography, Grid, Button, Card, CardMedia, CardContent, ButtonGroup } from '@mui/material';
 
-function GalleryItem ({ image, onClickLike }) {
+function GalleryItem ({ image, onClickLike, deleteItem }) {
 //image is series of individual objects
 
     const [isToggled, setIsToggled] = useState(false);
@@ -35,12 +35,20 @@ function GalleryItem ({ image, onClickLike }) {
             />
         )}
 
+        <ButtonGroup 
+            variant="contained"
+            fullWidth>
+            <Button //like button triggers axios PUT 
+                onClick={() => onClickLike(image.id, {likes: image.likes + 1})} 
+                >Like
+            </Button>
 
-        <Button //like button triggers axios PUT
-            variant="contained" 
-            onClick={() => onClickLike(image.id, {likes: image.likes + 1})} 
-            type="button">Like
-        </Button>
+            <Button //like button triggers axios DELETE 
+                color="error"
+                onClick={() => deleteItem(image.id)} 
+                >Delete
+            </Button>
+        </ButtonGroup>
         
         {image.likes === 0 ? (
             //default state
