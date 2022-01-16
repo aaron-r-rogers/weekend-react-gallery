@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Typography, Grid, Button, Card, CardMedia, CardContent } from '@mui/material';
 
-function GalleryItem ({ image, onClickLike, likes }) {
+function GalleryItem ({ image, onClickLike }) {
 //image is series of individual objects
 
     const [isToggled, setIsToggled] = useState(false);
+
 
     return (
         
@@ -15,7 +16,8 @@ function GalleryItem ({ image, onClickLike, likes }) {
         >
         {isToggled ? (
             <CardContent sx={{ flexGrow: 1 }}>
-            <Typography variant="h6" 
+            <Typography 
+                variant="h6" 
                 onClick={() => setIsToggled(!isToggled)}>
                 {image.description}        
             </Typography>
@@ -35,7 +37,7 @@ function GalleryItem ({ image, onClickLike, likes }) {
 
         <Button //like button triggers axios PUT
             variant="contained" 
-            onClick={() => onClickLike(image.id)} 
+            onClick={() => onClickLike(image.id, {likes: image.likes + 1})} 
             type="button">Like
         </Button>
         
