@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
-// DO NOT MODIFY THIS FILE FOR BASE MODE
-
 // PUT Route
 router.put('/like/:id', (req, res) => {
     console.log('req.params are:', req.params);
@@ -20,16 +18,14 @@ router.put('/like/:id', (req, res) => {
 router.get('/', (req, res) => {
     const sqlQuery = `SELECT * FROM gallery ORDER BY id ASC;`
     pool.query(sqlQuery)
-        .then((res) => {
-            console.log('successful db GET', res);
-            res.send(res.rows);
+        .then((result) => {
+            console.log('successful db GET', result);
+            res.send(result.rows);
         })
         .catch((err) => {
             console.log(`Error making database query ${sqlQuery}`, err);
             res.sendStatus(500);
         })
-
-    
 }); // END GET Route
 
 module.exports = router;
