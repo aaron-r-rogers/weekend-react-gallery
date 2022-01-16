@@ -39,4 +39,31 @@ router.get('/', (req, res) => {
         })
 }); // END GET Route
 
+// POST route
+router.post('/', (req, res) => {
+	let newItem = req.body;
+	console.log(`Adding item`, newItem);
+
+	let sqlQuery = `
+        INSERT INTO "gallery" 
+            ("id", "title", "description", "path", "likes") 
+        VALUES
+            (DEFAULT, $1, $2, $3, DEFAULT);`;
+
+    const queryParams = [
+        newItem.title,          // $1
+        newItem.description,    // $2
+        newItem.path            // $3
+    ];
+
+	pool.query(sqlQuery, queryParams)
+		.then((result) => {
+			res.sendStatus(201);
+		})
+		.catch((err) => {
+			console.log(`Error adding new item`, err);
+			res.sendStatus(500);
+		});
+});
+
 module.exports = router;

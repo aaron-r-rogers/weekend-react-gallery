@@ -31,6 +31,7 @@ function GalleryItem ({ image, onClickLike }) {
                 }}
                 //image.path is relative path of each jpg 
                 image={image.path}
+                title={image.title}
             />
         )}
 
