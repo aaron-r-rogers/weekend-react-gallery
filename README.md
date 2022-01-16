@@ -4,7 +4,7 @@
 
 _Duration: 3 day sprint_
 
-This is my first app built with React.  It implements all four CRUD operations in a simple "Gallery of My Life."  There are a few photos laid out in a grid with like and delete buttons. There is also a form at the top to add more images.
+This is my first responsive app built with React.  It implements all four CRUD operations in a simple "Gallery of My Life."  There are a few photos laid out in a grid with like and delete buttons. There is also a form at the top to add more images.
 
 ## Screenshot
 
