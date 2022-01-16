@@ -22,8 +22,19 @@ function App() {
         setGalleryList(res.data)
       })
       .catch(err => {
-        //alert('error getting guests');
         console.log('Error getting gallery:', err);
+      })
+  }
+
+  const incrementLikes = (id) => {
+    //url to match gallery.router.js
+    axios.put(`/gallery/like/${id}`)
+      .then(res => {
+        //new state, new DOM
+        fetchImages();
+      })
+      .catch(err => {
+        console.log('Error in PUT:', err);
       })
   }
 
@@ -34,6 +45,7 @@ function App() {
         </header>
         <GalleryList 
           galleryList={galleryList}
+          onClickLike={incrementLikes}
         />
       </div>
     );
