@@ -13,5 +13,4 @@ VALUES
     (DEFAULT, 'Gondola', 'Frances on the gondola in Lutsen last year.', 'images/gondola.jpg', DEFAULT),
     (DEFAULT, 'Loggers', 'About to tee off at a course I frequent, Loggers Trail.', 'images/loggers.jpg', DEFAULT),
     (DEFAULT, 'Northern', 'Frances enjoying a treat in front of Northern Waters in Duluth.', 'images/northern.jpg', DEFAULT),
-    (DEFAULT, 'Tree', 'The family with our freshly harvested tree. November 2020.', 'images/tree.jpg', DEFAULT)
-    ;
+    (DEFAULT, 'Tree', 'The family with our freshly harvested tree. November 2020.', 'images/tree.jpg', DEFAULT);
