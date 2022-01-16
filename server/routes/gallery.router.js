@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
             (DEFAULT, $1, $2, $3, DEFAULT);`;
 
     const queryParams = [
-        newItem.title           // $1
+        newItem.title,          // $1
         newItem.description,    // $2
         newItem.path            // $3
     ];

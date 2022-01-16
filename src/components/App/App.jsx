@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Typography, CssBaseline } from '@mui/material';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList.jsx';
-import Form from '..Form/Form.jsx';
+import Form from '../Form/Form.jsx';
 
 function App() {
 
@@ -44,7 +44,8 @@ function App() {
   }
 
   const addItem = (newItem) => {
-    axios.post('/gallery', newPhoto)
+    console.log('newItem in app is:', newItem)
+    axios.post('/gallery', newItem)
       .then(response => {
         console.log('newItem POST successful');
         fetchImages();
@@ -61,6 +62,9 @@ function App() {
         <header className="App-header">
           <Typography variant="h1" className="App-title">Gallery of My Life</Typography>
         </header>
+        <Form 
+          addItem={addItem}
+        />
         <GalleryList 
           galleryList={galleryList}
           onClickLike={incrementLikes}
