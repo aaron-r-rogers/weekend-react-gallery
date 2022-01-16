@@ -15,7 +15,9 @@ function Form ({ addItem }) {
             path: imagePath
         };
 
-        
+        //pass newItem to addItem POST in App.jsx
+        addItem(newItem);
+
 
     }
 

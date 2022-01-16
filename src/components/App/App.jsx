@@ -43,6 +43,17 @@ function App() {
       })
   }
 
+  const addItem = (newItem) => {
+    axios.post('/gallery', newPhoto)
+      .then(response => {
+        console.log('newItem POST successful');
+        fetchImages();
+      })
+      .catch(err => {
+        console.log('Error in POST:', err);
+      })
+  }
+
     return (
       <>
       <CssBaseline />
