@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Typography, CssBaseline } from '@mui/material';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList.jsx';
 
@@ -39,15 +40,18 @@ function App() {
   }
 
     return (
+      <>
+      <CssBaseline />
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
+          <Typography variant="h1" className="App-title">Gallery of My Life</Typography>
         </header>
         <GalleryList 
           galleryList={galleryList}
           onClickLike={incrementLikes}
         />
       </div>
+      </>
     );
 }
 

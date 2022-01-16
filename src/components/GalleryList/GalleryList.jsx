@@ -1,12 +1,15 @@
 import GalleryItem from "../GalleryItem/GalleryItem";
 
+import { Grid, Container } from '@mui/material';
+
 function GalleryList ({ galleryList, onClickLike}) {
 //galleryList is array of objects
 
     console.log(galleryList);
     return (
     <>
-        <div className="container">
+    <Container maxWidth="md">
+        <Grid container spacing={4} justify="center">
             {galleryList.map(image => (
                 <GalleryItem
                     key={image.id}
@@ -15,7 +18,8 @@ function GalleryList ({ galleryList, onClickLike}) {
                     onClickLike={onClickLike}
                 />
             ))}
-        </div>
+        </Grid>
+        </Container>
     </>
     )
 }
