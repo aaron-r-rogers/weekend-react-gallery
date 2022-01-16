@@ -55,6 +55,16 @@ function App() {
       })
   }
 
+  const deleteItem = (id, todoItem) => {
+    axios.de;ete(`/gallery/${id}`)
+      .then(res => {
+        fetchImages();
+      })
+      .catch(err => {
+        console.error('Delete image failed', err);
+      });
+  }
+
     return (
       <>
       <CssBaseline />
