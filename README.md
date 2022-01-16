@@ -8,7 +8,7 @@ This is my first app built with React.  It implements all four CRUD operations i
 
 ## Screenshot
 
-![App in use:](https://github.com/aaron-r-rogers/weekend-sql-to-do-list/blob/master/server/public/images/screenshot.png)
+![App in use:](https://github.com/aaron-r-rogers/weekend-react-gallery/blob/master/wireframes/GalleryDemo.gif)
 
 ### Prerequisites
 
