@@ -15,7 +15,8 @@ function GalleryItem ({ image, onClickLike, likes }) {
         >
         {isToggled ? (
             <CardContent sx={{ flexGrow: 1 }}>
-            <Typography variant="h6" 
+            <Typography 
+                variant="h6" 
                 onClick={() => setIsToggled(!isToggled)}>
                 {image.description}        
             </Typography>
