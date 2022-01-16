@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Typography, CssBaseline } from '@mui/material';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList.jsx';
+import Form from '..Form/Form.jsx';
 
 function App() {
 
