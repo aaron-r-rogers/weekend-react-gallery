@@ -8,6 +8,8 @@ import GalleryList from '../GalleryList/GalleryList.jsx';
 function App() {
 
   const [galleryList, setGalleryList] = useState([]);
+  const [likes, setLikes] = useState(0);
+
 
   //On load, get images
   useEffect(() => {
@@ -27,9 +29,10 @@ function App() {
       })
   }
 
-  const incrementLikes = (id) => {
+  const incrementLikes = (id, likes) => {
+    console.log('id and likes in app:', id, likes);
     //url to match gallery.router.js
-    axios.put(`/gallery/like/${id}`)
+    axios.put(`/gallery/like/${id}`, likes)
       .then(res => {
         //new state, new DOM
         fetchImages();
