@@ -9,8 +9,6 @@ import Form from '../Form/Form.jsx';
 function App() {
 
   const [galleryList, setGalleryList] = useState([]);
-  const [likes, setLikes] = useState(0);
-
 
   //On load, get images
   useEffect(() => {
